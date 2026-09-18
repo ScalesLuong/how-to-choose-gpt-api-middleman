@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>API怎么调用？GPT中转站接入与开发实战教程｜网站名称</title>
+  <title>GPT API中转站怎么选？价格、模型、稳定性与接入方式全面对比｜网站名称</title>
   <meta name="description" content="GPT API中转站怎么选？本文从模型支持、接口兼容性、调用价格、响应速度、稳定性、API Key管理、开发文档和售后支持等方面，详细介绍如何选择适合个人开发者和企业项目的大模型 API 中转站。">
   <meta name="keywords" content="GPT中转站,GPT API中转站,GPT API价格,GPT API调用,GPT接口,OpenAI API中转,ChatGPT API中转,国内GPT API,大模型API中转,AI API平台,OpenAI兼容接口,GPT API服务,GPT模型调用">
   <meta name="author" content="作者名称">
@@ -14,13 +14,13 @@
 
   <meta property="og:type" content="article">
   <meta property="og:site_name" content="ai api">
-  <meta property="og:title" content="API怎么调用？GPT中转站接入与开发实战教程｜网站名称">
+  <meta property="og:title" content="GPT API中转站怎么选？价格、模型、稳定性与接入方式全面对比｜网站名称">
   <meta property="og:description" content="GPT API中转站怎么选？本文从模型支持、接口兼容性、调用价格、响应速度、稳定性、API Key管理、开发文档和售后支持等方面，详细介绍如何选择适合个人开发者和企业项目的大模型 API 中转站。">
   <meta property="og:url" content="https://quanzil.com/articles/how-to-call-gpt-api-in-china.html">
   <meta property="og:image" content="https://quanzil.com/images/article-cover.jpg">
   <meta property="og:locale" content="zh_CN">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="API怎么调用？GPT中转站接入与开发实战教程｜网站名称">
+  <meta name="twitter:title" content="GPT API中转站怎么选？价格、模型、稳定性与接入方式全面对比｜网站名称">
   <meta name="twitter:description" content="GPT API中转站怎么选？本文从模型支持、接口兼容性、调用价格、响应速度、稳定性、API Key管理、开发文档和售后支持等方面，详细介绍如何选择适合个人开发者和企业项目的大模型 API 中转站。">
   <meta name="twitter:image" content="https://quanzil.com/images/article-cover.jpg">
 
@@ -246,7 +246,7 @@
       <a id="site-brand" class="brand-wrap" href="https://quanzil.com/" aria-label="返回网站首页">
         <span id="brand-mark" class="brand-mark">AI</span>
         <span class="brand-copy">
-          <span id="brand-name" class="brand">AI agent</span>
+          <span id="brand-name" class="brand">API</span>
           <span id="brand-tagline" class="brand-tagline">让技术更简单</span>
         </span>
       </a>
@@ -266,7 +266,7 @@
     <article class="article" itemscope itemtype="https://schema.org/Article">
       <header class="article-header">
         <p class="eyebrow">原创文章</p>
-        <h1 id="article-title" itemprop="headline">API怎么调用？GPT中转站接入与开发实战教程</h1>
+        <h1 id="article-title" itemprop="headline">GPT API中转站怎么选？价格、模型、稳定性与接入方式全面对比</h1>
         <p id="article-summary" class="summary" itemprop="description">GPT API中转站怎么选？本文从模型支持、接口兼容性、调用价格、响应速度、稳定性、API Key管理、开发文档和售后支持等方面，详细介绍如何选择适合个人开发者和企业项目的大模型 API 中转站。</p>
         <div class="meta">
           <span>作者：<span id="article-author" itemprop="author">ai agent</span></span>
@@ -286,13 +286,12 @@
     <div>© <span id="current-year"></span>  保留所有权利</div>
   </footer>
 
-  <!-- Markdown 渲染库；如果你的网站不能访问 CDN，可下载 marked.min.js 后改成本地路径。 -->
   <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/dompurify@3.1.6/dist/purify.min.js"></script>
   <script>
-    // 手动使用时修改以下配置；Excel 批量生成时由 Python 自动填写。
+
     const articleConfig = {
-  "title": "API怎么调用？GPT中转站接入与开发实战教程",
+  "title": "GPT API中转站怎么选？价格、模型、稳定性与接入方式全面对比",
   "summary": "GPT API中转站怎么选？本文从模型支持、接口兼容性、调用价格、响应速度、稳定性、API Key管理、开发文档和售后支持等方面，详细介绍如何选择适合个人开发者和企业项目的大模型 API 中转站。",
   "author": "ai agent",
   "published": "2026-09-18 00:00:00",
@@ -330,7 +329,6 @@
     document.getElementById('publish-date').textContent = formatDate(articleConfig.published);
     document.getElementById('publish-date').dateTime = articleConfig.published;
 
-    // 自动更新时间：使用访问当天日期；如需固定更新时间，改为指定日期字符串。
     const updated = new Date();
     const updateDate = updated.toISOString().slice(0, 10);
     document.getElementById('update-date').textContent = formatDate(updateDate);
@@ -346,13 +344,12 @@
       const rendered = marked.parse(markdown, { gfm: true, breaks: false });
       markdownContent.innerHTML = DOMPurify.sanitize(rendered);
     } else {
-      // CDN 加载失败时先显示纯文本正文，保留文章内容。
+
       markdownContent.textContent = markdown;
       markdownContent.style.whiteSpace = 'pre-wrap';
       markdownContent.style.overflowWrap = 'anywhere';
     }
 
-    // 动态生成 Article 结构化数据，帮助搜索引擎理解页面。
     const schema = {
       '@context': 'https://schema.org',
       '@type': 'Article',
