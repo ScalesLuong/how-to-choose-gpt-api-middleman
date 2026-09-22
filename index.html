@@ -275,26 +275,702 @@
         </div>
       </header>
 
-      <div id="markdown-content" class="markdown-body" itemprop="articleBody"></div>
-      <script type="application/json" id="article-markdown">
-"很多开发者在搜索 **GPT API中转站**、**GPT中转站**、**GPT API价格**、**GPT API调用** 时，真正关心的问题通常不是“中转站是什么”，而是：\n\n\u003e 哪个平台更适合我的项目？价格怎么样？接口是否稳定？能不能直接使用 OpenAI SDK？\n\n随着 AI 应用越来越普及，越来越多个人开发者、创业团队和企业开始接入大模型 API。\n\n常见应用包括：\n\n- AI 聊天机器人\n- 智能客服\n- AI 写作工具\n- 知识库问答\n- AI 编程助手\n- 自动翻译工具\n- 文档总结系统\n- 图片生成应用\n- 企业内部 AI 助手\n- SaaS 大模型应用\n\n但是，不同平台在模型、价格、接口格式和稳定性方面可能存在差异。如果选择不合适，后期可能会遇到：\n\n- 模型无法满足业务需求\n- API 接口不兼容\n- 调用速度较慢\n- 价格不透明\n- 高峰期请求失败\n- 更换模型需要大量修改代码\n- 没有完善的开发文档\n\n因此，选择 GPT API中转站 时，不能只看价格，还需要综合评估平台的模型支持、接口兼容性、稳定性和开发体验。\n\n如果你想快速了解大模型 API 中转服务，可以查看：\n\n\u003e AI API 中转站平台：\u003chttps://quanzil.com\u003e\n\n\u003e AI API 中转站平台：\u003chttps://quanzil.net\u003e\n\n本文将详细介绍选择 GPT API中转站时需要重点关注的内容，并提供实际的 GPT API 调用示例。\n\n---\n\n## 一、什么是 GPT API中转站？\n\nGPT API中转站，是一种帮助开发者调用 GPT 和其他大模型 API 的服务平台。\n\n它通常会提供一个统一的 API 访问入口，让开发者通过类似 OpenAI API 的方式调用模型。\n\n常见名称包括：\n\n- GPT中转站\n- GPT API中转站\n- OpenAI API中转\n- ChatGPT API中转\n- AI API中转站\n- 大模型 API平台\n- OpenAI兼容接口\n\n简单来说，开发者可以通过一个统一接口调用不同模型，而不需要为每个模型单独编写一套完整的请求逻辑。\n\n例如：\n\n```json\n{\n  \"model\": \"gpt-4o-mini\",\n  \"messages\": [\n    {\n      \"role\": \"user\",\n      \"content\": \"请介绍 GPT API 中转站的作用。\"\n    }\n  ]\n}\n```\n\n如果平台兼容 OpenAI 格式，那么很多基于 OpenAI SDK 开发的项目，都可以通过修改 `base_url` 的方式接入。\n\n---\n\n## 二、为什么需要 GPT API中转站？\n\n### 1. 降低模型 API 接入门槛\n\n直接接入模型 API 时，开发者需要了解：\n\n- API Key 配置\n- 请求地址\n- 请求参数\n- 模型名称\n- 返回结构\n- 错误码\n- 并发限制\n- 计费方式\n\n如果后续还要接入多个模型，就需要重复学习多套文档。\n\nGPT API中转站通常会提供统一的接口格式，从而降低开发者的接入难度。\n\n---\n\n### 2. 方便调用多个模型\n\n一个 AI 产品可能同时需要使用多种模型。\n\n例如：\n\n- 普通对话使用轻量 GPT 模型\n- 复杂任务使用高质量模型\n- 代码功能使用代码能力更强的模型\n- 知识库使用 Embedding 模型\n- 图片功能使用图像模型\n\n如果所有模型都通过统一接口调用，那么后续切换模型会更加方便。\n\n---\n\n### 3. 减少代码改动\n\n如果平台使用 OpenAI 兼容格式，调用代码通常类似下面这样：\n\n```python\nfrom openai import OpenAI\n\nclient = OpenAI(\n    api_key=\"YOUR_API_KEY\",\n    base_url=\"https://example.com/v1\"\n)\n```\n\n需要更换模型时，通常只需要修改：\n\n```python\nmodel=\"gpt-4o-mini\"\n```\n\n而不需要重写整个业务系统。\n\n---\n\n### 4. 适合快速开发和测试\n\n很多开发者在做 AI 产品初期，最重要的是快速验证功能。\n\n例如：\n\n- 用户是否需要这个功能\n- 模型回答是否满足要求\n- 每次调用的成本是多少\n- 响应速度是否可以接受\n- 是否需要更换其他模型\n\nGPT API中转站适合用于这种快速测试和产品原型开发。\n\n---\n\n## 三、选择 GPT API中转站要看哪些方面？\n\n选择 GPT API中转站时，建议从以下几个维度进行判断。\n\n---\n\n## 四、第一点：是否兼容 OpenAI API 格式？\n\n这是选择 GPT API中转站时非常重要的一个标准。\n\n如果平台兼容 OpenAI 格式，通常可以使用类似的请求结构：\n\n```json\n{\n  \"model\": \"gpt-4o-mini\",\n  \"messages\": [\n    {\n      \"role\": \"user\",\n      \"content\": \"你好\"\n    }\n  ]\n}\n```\n\n兼容 OpenAI 格式的好处包括：\n\n- 可以复用已有代码\n- 可以使用 OpenAI SDK\n- 方便迁移旧项目\n- 容易切换模型\n- 团队学习成本较低\n- 方便使用第三方工具\n\n开发者在接入前，建议确认平台是否支持：\n\n- Chat Completions 接口\n- `base_url` 配置\n- OpenAI SDK\n- 流式输出\n- 多轮对话\n- 常见消息格式\n- 常用模型参数\n\n---\n\n## 五、第二点：支持哪些模型？\n\n不同 GPT API中转站支持的模型范围可能不同。\n\n选择之前，应先确认平台是否提供你需要的模型类型。\n\n常见模型包括：\n\n- GPT 系列模型\n- Claude 系列模型\n- Gemini 系列模型\n- DeepSeek 系列模型\n- Qwen 系列模型\n- Llama 系列模型\n- Embedding 模型\n- 图像生成模型\n- 多模态模型\n\n如果你只需要简单聊天功能，单一 GPT 模型可能已经够用。\n\n如果你准备开发一个长期运营的 AI 产品，则建议选择支持多模型的平台。\n\n这样后续可以根据任务需要切换模型。\n\n---\n\n## 六、第三点：价格是否清晰？\n\nGPT API价格通常会受到以下因素影响：\n\n- 模型类型\n- 输入 token 数量\n- 输出 token 数量\n- 上下文长度\n- 调用频率\n- 是否使用图像或多模态能力\n- 平台自身的计费规则\n\n不同模型的价格可能有明显区别。\n\n一般来说：\n\n- 轻量模型适合高频、低成本任务\n- 高质量模型适合复杂任务\n- 图像模型通常按照图片或相关参数计费\n- Embedding 模型适合知识库和语义搜索\n\n选择平台时，建议关注：\n\n- 输入和输出是否分开计费\n- 价格单位是否明确\n- 是否可以查看调用记录\n- 是否可以查看余额消耗\n- 是否支持余额提醒\n- 是否有最低充值限制\n- 是否有隐藏费用\n\n不要只看单价，还要结合模型质量、响应速度和稳定性进行判断。\n\n---\n\n## 七、第四点：接口稳定性如何？\n\n如果 GPT API 用于线上产品，稳定性通常比低价格更重要。\n\n因为接口不稳定可能直接影响：\n\n- 用户体验\n- 聊天功能\n- 客服系统\n- 内容生成任务\n- 自动化流程\n- 企业内部服务\n\n可以重点关注以下指标：\n\n- 请求成功率\n- 平均响应速度\n- 高峰期表现\n- 接口超时情况\n- 限流规则\n- 故障恢复速度\n- 是否提供备用模型\n- 是否支持失败重试\n\n在正式上线前，建议使用真实业务请求进行一段时间的测试，而不是只发送一两次请求。\n\n---\n\n## 八、第五点：开发文档是否完整？\n\n一份完整的开发文档，可以明显降低 GPT API 接入难度。\n\n建议确认文档中是否包含以下内容：\n\n- API Base URL\n- API Key 使用方式\n- cURL 示例\n- Python 示例\n- Node.js 示例\n- OpenAI SDK 示例\n- 模型列表\n- 请求参数说明\n- 返回数据格式\n- 错误码说明\n- 限流规则\n- 价格说明\n- 流式调用示例\n\n如果平台没有清晰文档，后续遇到问题时，开发成本可能会比较高。\n\n你可以先查看：\n\n\u003e 开发文档：\u003chttps://quanzil.com\u003e\n\n\u003e 开发文档：\u003chttps://quanzil.net\u003e\n\n---\n\n## 九、第六点：是否支持流式输出？\n\n流式输出适合聊天类应用。\n\n普通请求通常是模型生成完整内容后一次性返回。\n\n流式请求则会将生成结果分段返回。\n\n例如：\n\n```json\n{\n  \"stream\": true\n}\n```\n\n流式输出适合：\n\n- AI 聊天窗口\n- 智能客服\n- 在线写作工具\n- AI 编程助手\n- 实时翻译\n- 长文本生成\n\n它的主要优势是用户可以更快看到第一部分内容，不需要等待完整回答生成完毕。\n\n---\n\n## 十、GPT API中转站的基本调用方式\n\n使用 GPT API中转站，通常需要完成以下步骤：\n\n1. 获取 API Key\n2. 获取 Base URL\n3. 选择模型\n4. 构造请求参数\n5. 发送请求\n6. 解析返回内容\n\n下面使用 cURL 和 Python 进行示例。\n\n---\n\n## 十一、cURL 调用 GPT API 示例\n\n```bash\ncurl https://jeniya.cn/v1/chat/completions \\\n  -H \"Content-Type: application/json\" \\\n  -H \"Authorization: Bearer YOUR_API_KEY\" \\\n  -d '{\n    \"model\": \"gpt-4o-mini\",\n    \"messages\": [\n      {\n        \"role\": \"system\",\n        \"content\": \"你是一个专业的中文 AI 助手。\"\n      },\n      {\n        \"role\": \"user\",\n        \"content\": \"如何选择 GPT API中转站？\"\n      }\n    ],\n    \"temperature\": 0.7\n  }'\n```\n\n其中：\n\n- `model` 表示调用的模型\n- `messages` 表示对话内容\n- `temperature` 表示输出随机性\n- `Authorization` 用于身份验证\n\n具体接口地址和模型名称，需要以平台实际提供的文档为准。\n\n---\n\n## 十二、Python 调用 GPT API 示例\n\n```python\nimport requests\n\nurl = \"https://jeniya.cn/v1/chat/completions\"\napi_key = \"YOUR_API_KEY\"\n\nheaders = {\n    \"Content-Type\": \"application/json\",\n    \"Authorization\": f\"Bearer {api_key}\"\n}\n\npayload = {\n    \"model\": \"gpt-4o-mini\",\n    \"messages\": [\n        {\n            \"role\": \"system\",\n            \"content\": \"你是一个专业的中文技术助手。\"\n        },\n        {\n            \"role\": \"user\",\n            \"content\": \"GPT API中转站适合哪些项目？\"\n        }\n    ],\n    \"temperature\": 0.7,\n    \"max_tokens\": 800\n}\n\nresponse = requests.post(\n    url,\n    headers=headers,\n    json=payload,\n    timeout=60\n)\n\nprint(response.status_code)\nprint(response.json())\n```\n\n如果需要提取模型返回的文本，可以使用：\n\n```python\ndata = response.json()\ncontent = data[\"choices\"][0][\"message\"][\"content\"]\n\nprint(content)\n```\n\n---\n\n## 十三、使用 OpenAI SDK 接入 GPT API中转站\n\n如果平台兼容 OpenAI SDK，可以通过设置 `base_url` 的方式调用。\n\n```python\nfrom openai import OpenAI\n\nclient = OpenAI(\n    api_key=\"YOUR_API_KEY\",\n    base_url=\"https://jeniya.cn/v1\"\n)\n\nresponse = client.chat.completions.create(\n    model=\"gpt-4o-mini\",\n    messages=[\n        {\n            \"role\": \"system\",\n            \"content\": \"你是一个专业的中文 AI 助手。\"\n        },\n        {\n            \"role\": \"user\",\n            \"content\": \"GPT API中转站应该如何选择？\"\n        }\n    ]\n)\n\nprint(response.choices[0].message.content)\n```\n\n对于已经使用 OpenAI SDK 的开发者来说，这种接入方式比较方便。\n\n通常需要修改：\n\n```python\napi_key=\"YOUR_API_KEY\"\nbase_url=\"https://jeniya.cn/v1\"\nmodel=\"gpt-4o-mini\"\n```\n\n---\n\n## 十四、不同应用应该如何选择模型？\n\n### 1. 普通聊天\n\n普通聊天、简单问答和日常对话，可以优先选择轻量模型。\n\n适合：\n\n- 网站 AI 助手\n- 基础客服\n- 常见问题回答\n- 简单内容生成\n- 文本改写\n\n重点关注：\n\n- 响应速度\n- 调用价格\n- 并发能力\n\n---\n\n### 2. AI 写作\n\nAI 写作通常更关注：\n\n- 内容质量\n- 语言表达\n- 上下文理解\n- 文章结构\n- 输出稳定性\n\n如果是简单标题和短文案，轻量模型通常可以满足需求。\n\n如果是长文章、专业内容或营销文案，可以测试能力更强的模型。\n\n---\n\n### 3. 智能客服\n\n智能客服通常更关注：\n\n- 回答稳定性\n- 业务知识准确性\n- 响应速度\n- 并发能力\n- 是否支持知识库\n\n对于客服场景，建议：\n\n- 使用较稳定的模型\n- 限制模型自由发挥\n- 使用清晰的系统提示词\n- 结合企业知识库\n- 对敏感问题增加人工转接\n\n---\n\n### 4. 知识库问答\n\n知识库问答通常需要两类模型：\n\n1. Embedding 模型\n2. Chat 对话模型\n\nEmbedding 模型负责将文档转换成向量，聊天模型负责根据检索结果生成自然语言回答。\n\n选择平台时，需要确认是否同时支持这两类能力。\n\n---\n\n### 5. AI 编程助手\n\n编程类应用通常更关注：\n\n- 代码生成质量\n- 长上下文理解\n- 代码格式稳定性\n- 错误分析能力\n- 多文件内容处理能力\n\n建议使用真实代码样例对不同模型进行测试，不要只根据模型名称判断效果。\n\n---\n\n## 十五、如何控制 GPT API 调用成本？\n\n### 1. 使用合适的模型\n\n简单任务不要默认使用最高成本模型。\n\n可以根据任务分层：\n\n- 简单分类：轻量模型\n- 短文本改写：轻量模型\n- 普通问答：中等模型\n- 复杂推理：高质量模型\n- 知识库检索：Embedding + Chat 模型\n\n---\n\n### 2. 减少无效上下文\n\n多轮对话中，不要无限保留所有历史内容。\n\n可以：\n\n- 只保留最近几轮\n- 对历史记录生成摘要\n- 删除无关消息\n- 只传递相关文档片段\n- 控制系统提示词长度\n\n---\n\n### 3. 限制输出长度\n\n可以设置：\n\n```json\n{\n  \"max_tokens\": 800\n}\n```\n\n对于只需要简短答案的任务，可以将上限设置得更低。\n\n---\n\n### 4. 增加缓存\n\n对于相同或相似的请求，可以使用缓存减少重复调用。\n\n适合缓存：\n\n- 常见问题\n- 固定产品介绍\n- 标准客服回答\n- 常用翻译\n- 固定格式的分类任务\n\n---\n\n### 5. 统计每次调用\n\n建议在系统中记录：\n\n- 调用模型\n- 请求时间\n- 响应时间\n- 输入长度\n- 输出长度\n- 请求状态\n- 错误类型\n- 消耗金额\n\n通过调用数据，可以发现哪些功能最消耗成本。\n\n---\n\n## 十六、GPT API 常见错误及处理方式\n\n### 1. 401 Unauthorized\n\n通常表示 API Key 验证失败。\n\n检查：\n\n```bash\nAuthorization: Bearer YOUR_API_KEY\n```\n\n同时确认：\n\n- Key 是否填写正确\n- 是否包含 Bearer\n- 是否多了空格\n- Key 是否过期\n- Base URL 是否正确\n\n---\n\n### 2. 400 Bad Request\n\n通常表示请求参数错误。\n\n常见原因：\n\n- JSON 格式错误\n- 模型名称错误\n- `messages` 结构错误\n- 缺少必要字段\n- 参数名称拼写错误\n\n建议先使用最小请求进行排查。\n\n---\n\n### 3. 429 Too Many Requests\n\n通常表示请求频率过高或额度不足。\n\n处理方式：\n\n- 降低并发\n- 增加重试间隔\n- 使用请求队列\n- 检查余额\n- 对重复请求进行缓存\n- 必要时切换模型\n\n---\n\n### 4. 500 Server Error\n\n通常表示服务端异常。\n\n建议：\n\n- 稍后重新请求\n- 记录完整错误内容\n- 检查平台运行状态\n- 增加超时和重试\n- 为重要业务设计备用方案\n\n---\n\n## 十七、GPT中转站和官方 API 如何选择？\n\n### 适合直接使用官方 API 的情况\n\n如果你：\n\n- 只需要使用单一模型\n- 需要官方最新功能\n- 已经熟悉官方 API\n- 有能力自行维护接口适配\n- 对底层服务有较强控制需求\n\n可以考虑直接使用官方 API。\n\n---\n\n### 适合使用 GPT API中转站的情况\n\n如果你：\n\n- 想快速完成 API 接入\n- 需要调用多个模型\n- 希望使用统一接口格式\n- 想方便比较不同模型\n- 想减少代码适配工作\n- 正在开发 AI 产品原型\n- 需要统一管理模型调用\n\n那么 GPT API中转站可能更加适合。\n\n---\n\n## 十八、GPT API中转站适合个人开发者吗？\n\n适合。\n\n个人开发者通常需要快速完成产品验证，例如：\n\n- AI 写作工具\n- AI 翻译工具\n- 聊天机器人\n- 浏览器插件\n- 内容生成网站\n- AI 资料总结工具\n- 个人知识库\n- 编程辅助工具\n\n使用 GPT API中转站，可以先用较低开发成本完成 MVP，再根据用户反馈逐步升级模型和系统。\n\n---\n\n## 十九、GPT API中转站适合企业项目吗？\n\n也适合，但企业项目需要重点关注：\n\n- 接口稳定性\n- 调用并发\n- 费用管理\n- 数据安全\n- 权限管理\n- 日志记录\n- 失败重试\n- 模型降级\n- 服务条款\n\n企业在正式上线前，建议先进行压力测试和长期稳定性测试。\n\n---\n\n## 二十、常见问题 FAQ\n\n### GPT API中转站安全吗？\n\n安全性取决于平台的服务能力和你的使用方式。开发者应保护 API Key，不要将密钥放在前端或公开代码中，并在使用前了解平台的隐私政策和服务条款。\n\n---\n\n### GPT API中转站价格一定比官方 API低吗？\n\n不一定。不同平台的价格、模型来源、计费方式和服务内容不同，不能简单判断谁一定更便宜。建议结合模型效果、稳定性和实际调用成本综合比较。\n\n---\n\n### GPT API中转站支持 OpenAI SDK 吗？\n\n如果平台兼容 OpenAI API 格式，通常可以通过配置 `base_url` 的方式使用 OpenAI SDK。具体要以平台文档为准。\n\n---\n\n### GPT API中转站可以同时调用多个模型吗？\n\n不同平台支持情况不同。一些平台会提供多个模型，开发者可以根据任务修改 `model` 参数进行切换。\n\n---\n\n### GPT API中转站适合做商业项目吗？\n\n是否适合，需要查看平台的服务条款、模型授权、数据处理规则和商业使用限制。商业项目上线前，建议仔细确认相关规定。\n\n---\n\n### GPT API调用失败怎么办？\n\n可以依次检查：\n\n1. API Key 是否正确\n2. Base URL 是否正确\n3. Authorization 格式是否正确\n4. 模型名称是否可用\n5. 请求 JSON 是否正确\n6. 账户余额或调用额度是否充足\n7. 是否触发限流或超时\n\n---\n\n## 总结\n\n选择 GPT API中转站 时，不要只关注“价格低不低”，还要综合考虑：\n\n- 是否兼容 OpenAI API\n- 是否支持 OpenAI SDK\n- 是否提供多个模型\n- API 文档是否完整\n- 接口是否稳定\n- 响应速度是否满足需求\n- 计费是否清晰\n- 是否支持流式输出\n- 是否方便查看调用记录\n- 是否适合你的业务场景\n\n如果你只是测试 GPT API，可以先使用轻量模型和简单请求。\n\n如果你准备开发正式产品，则建议提前做好：\n\n1. 模型分类\n2. 成本统计\n3. 错误重试\n4. 请求限流\n5. API Key 管理\n6. 多模型切换\n7. 备用方案设计\n\n对于需要快速接入 GPT、Claude、Gemini、DeepSeek 等大模型的开发者来说，兼容 OpenAI 格式的 GPT API中转站可以降低开发和维护成本。\n\n如果你想了解大模型 API 中转服务，可以查看：\n\n\u003e AI API 中转站平台：\u003chttps://quanzil.com\u003e\n\n\u003e AI API 中转站平台：\u003chttps://quanzil.net\u003e"
-      </script>
+      <!-- 👇 Python 会直接将转好的 HTML 注入到这个 div 中 -->
+      <div id="markdown-content" class="markdown-body" itemprop="articleBody">
+<p>很多开发者在搜索 <strong>GPT API中转站</strong>、<strong>GPT中转站</strong>、<strong>GPT API价格</strong>、<strong>GPT API调用</strong> 时，真正关心的问题通常不是“中转站是什么”，而是：</p>
+<blockquote>
+<p>哪个平台更适合我的项目？价格怎么样？接口是否稳定？能不能直接使用 OpenAI SDK？</p>
+</blockquote>
+<p>随着 AI 应用越来越普及，越来越多个人开发者、创业团队和企业开始接入大模型 API。</p>
+<p>常见应用包括：</p>
+<ul>
+<li>AI 聊天机器人</li>
+<li>智能客服</li>
+<li>AI 写作工具</li>
+<li>知识库问答</li>
+<li>AI 编程助手</li>
+<li>自动翻译工具</li>
+<li>文档总结系统</li>
+<li>图片生成应用</li>
+<li>企业内部 AI 助手</li>
+<li>SaaS 大模型应用</li>
+</ul>
+<p>但是，不同平台在模型、价格、接口格式和稳定性方面可能存在差异。如果选择不合适，后期可能会遇到：</p>
+<ul>
+<li>模型无法满足业务需求</li>
+<li>API 接口不兼容</li>
+<li>调用速度较慢</li>
+<li>价格不透明</li>
+<li>高峰期请求失败</li>
+<li>更换模型需要大量修改代码</li>
+<li>没有完善的开发文档</li>
+</ul>
+<p>因此，选择 GPT API中转站 时，不能只看价格，还需要综合评估平台的模型支持、接口兼容性、稳定性和开发体验。</p>
+<p>如果你想快速了解大模型 API 中转服务，可以查看：</p>
+<blockquote>
+<p>AI API 中转站平台：<a href="https://quanzil.com">https://quanzil.com</a></p>
+<p>AI API 中转站平台：<a href="https://quanzil.net">https://quanzil.net</a></p>
+</blockquote>
+<p>本文将详细介绍选择 GPT API中转站时需要重点关注的内容，并提供实际的 GPT API 调用示例。</p>
+<hr />
+<h2>一、什么是 GPT API中转站？</h2>
+<p>GPT API中转站，是一种帮助开发者调用 GPT 和其他大模型 API 的服务平台。</p>
+<p>它通常会提供一个统一的 API 访问入口，让开发者通过类似 OpenAI API 的方式调用模型。</p>
+<p>常见名称包括：</p>
+<ul>
+<li>GPT中转站</li>
+<li>GPT API中转站</li>
+<li>OpenAI API中转</li>
+<li>ChatGPT API中转</li>
+<li>AI API中转站</li>
+<li>大模型 API平台</li>
+<li>OpenAI兼容接口</li>
+</ul>
+<p>简单来说，开发者可以通过一个统一接口调用不同模型，而不需要为每个模型单独编写一套完整的请求逻辑。</p>
+<p>例如：</p>
+<pre><code class="language-json">{
+  &quot;model&quot;: &quot;gpt-4o-mini&quot;,
+  &quot;messages&quot;: [
+    {
+      &quot;role&quot;: &quot;user&quot;,
+      &quot;content&quot;: &quot;请介绍 GPT API 中转站的作用。&quot;
+    }
+  ]
+}
+</code></pre>
+<p>如果平台兼容 OpenAI 格式，那么很多基于 OpenAI SDK 开发的项目，都可以通过修改 <code>base_url</code> 的方式接入。</p>
+<hr />
+<h2>二、为什么需要 GPT API中转站？</h2>
+<h3>1. 降低模型 API 接入门槛</h3>
+<p>直接接入模型 API 时，开发者需要了解：</p>
+<ul>
+<li>API Key 配置</li>
+<li>请求地址</li>
+<li>请求参数</li>
+<li>模型名称</li>
+<li>返回结构</li>
+<li>错误码</li>
+<li>并发限制</li>
+<li>计费方式</li>
+</ul>
+<p>如果后续还要接入多个模型，就需要重复学习多套文档。</p>
+<p>GPT API中转站通常会提供统一的接口格式，从而降低开发者的接入难度。</p>
+<hr />
+<h3>2. 方便调用多个模型</h3>
+<p>一个 AI 产品可能同时需要使用多种模型。</p>
+<p>例如：</p>
+<ul>
+<li>普通对话使用轻量 GPT 模型</li>
+<li>复杂任务使用高质量模型</li>
+<li>代码功能使用代码能力更强的模型</li>
+<li>知识库使用 Embedding 模型</li>
+<li>图片功能使用图像模型</li>
+</ul>
+<p>如果所有模型都通过统一接口调用，那么后续切换模型会更加方便。</p>
+<hr />
+<h3>3. 减少代码改动</h3>
+<p>如果平台使用 OpenAI 兼容格式，调用代码通常类似下面这样：</p>
+<pre><code class="language-python">from openai import OpenAI
+
+client = OpenAI(
+    api_key=&quot;YOUR_API_KEY&quot;,
+    base_url=&quot;https://example.com/v1&quot;
+)
+</code></pre>
+<p>需要更换模型时，通常只需要修改：</p>
+<pre><code class="language-python">model=&quot;gpt-4o-mini&quot;
+</code></pre>
+<p>而不需要重写整个业务系统。</p>
+<hr />
+<h3>4. 适合快速开发和测试</h3>
+<p>很多开发者在做 AI 产品初期，最重要的是快速验证功能。</p>
+<p>例如：</p>
+<ul>
+<li>用户是否需要这个功能</li>
+<li>模型回答是否满足要求</li>
+<li>每次调用的成本是多少</li>
+<li>响应速度是否可以接受</li>
+<li>是否需要更换其他模型</li>
+</ul>
+<p>GPT API中转站适合用于这种快速测试和产品原型开发。</p>
+<hr />
+<h2>三、选择 GPT API中转站要看哪些方面？</h2>
+<p>选择 GPT API中转站时，建议从以下几个维度进行判断。</p>
+<hr />
+<h2>四、第一点：是否兼容 OpenAI API 格式？</h2>
+<p>这是选择 GPT API中转站时非常重要的一个标准。</p>
+<p>如果平台兼容 OpenAI 格式，通常可以使用类似的请求结构：</p>
+<pre><code class="language-json">{
+  &quot;model&quot;: &quot;gpt-4o-mini&quot;,
+  &quot;messages&quot;: [
+    {
+      &quot;role&quot;: &quot;user&quot;,
+      &quot;content&quot;: &quot;你好&quot;
+    }
+  ]
+}
+</code></pre>
+<p>兼容 OpenAI 格式的好处包括：</p>
+<ul>
+<li>可以复用已有代码</li>
+<li>可以使用 OpenAI SDK</li>
+<li>方便迁移旧项目</li>
+<li>容易切换模型</li>
+<li>团队学习成本较低</li>
+<li>方便使用第三方工具</li>
+</ul>
+<p>开发者在接入前，建议确认平台是否支持：</p>
+<ul>
+<li>Chat Completions 接口</li>
+<li><code>base_url</code> 配置</li>
+<li>OpenAI SDK</li>
+<li>流式输出</li>
+<li>多轮对话</li>
+<li>常见消息格式</li>
+<li>常用模型参数</li>
+</ul>
+<hr />
+<h2>五、第二点：支持哪些模型？</h2>
+<p>不同 GPT API中转站支持的模型范围可能不同。</p>
+<p>选择之前，应先确认平台是否提供你需要的模型类型。</p>
+<p>常见模型包括：</p>
+<ul>
+<li>GPT 系列模型</li>
+<li>Claude 系列模型</li>
+<li>Gemini 系列模型</li>
+<li>DeepSeek 系列模型</li>
+<li>Qwen 系列模型</li>
+<li>Llama 系列模型</li>
+<li>Embedding 模型</li>
+<li>图像生成模型</li>
+<li>多模态模型</li>
+</ul>
+<p>如果你只需要简单聊天功能，单一 GPT 模型可能已经够用。</p>
+<p>如果你准备开发一个长期运营的 AI 产品，则建议选择支持多模型的平台。</p>
+<p>这样后续可以根据任务需要切换模型。</p>
+<hr />
+<h2>六、第三点：价格是否清晰？</h2>
+<p>GPT API价格通常会受到以下因素影响：</p>
+<ul>
+<li>模型类型</li>
+<li>输入 token 数量</li>
+<li>输出 token 数量</li>
+<li>上下文长度</li>
+<li>调用频率</li>
+<li>是否使用图像或多模态能力</li>
+<li>平台自身的计费规则</li>
+</ul>
+<p>不同模型的价格可能有明显区别。</p>
+<p>一般来说：</p>
+<ul>
+<li>轻量模型适合高频、低成本任务</li>
+<li>高质量模型适合复杂任务</li>
+<li>图像模型通常按照图片或相关参数计费</li>
+<li>Embedding 模型适合知识库和语义搜索</li>
+</ul>
+<p>选择平台时，建议关注：</p>
+<ul>
+<li>输入和输出是否分开计费</li>
+<li>价格单位是否明确</li>
+<li>是否可以查看调用记录</li>
+<li>是否可以查看余额消耗</li>
+<li>是否支持余额提醒</li>
+<li>是否有最低充值限制</li>
+<li>是否有隐藏费用</li>
+</ul>
+<p>不要只看单价，还要结合模型质量、响应速度和稳定性进行判断。</p>
+<hr />
+<h2>七、第四点：接口稳定性如何？</h2>
+<p>如果 GPT API 用于线上产品，稳定性通常比低价格更重要。</p>
+<p>因为接口不稳定可能直接影响：</p>
+<ul>
+<li>用户体验</li>
+<li>聊天功能</li>
+<li>客服系统</li>
+<li>内容生成任务</li>
+<li>自动化流程</li>
+<li>企业内部服务</li>
+</ul>
+<p>可以重点关注以下指标：</p>
+<ul>
+<li>请求成功率</li>
+<li>平均响应速度</li>
+<li>高峰期表现</li>
+<li>接口超时情况</li>
+<li>限流规则</li>
+<li>故障恢复速度</li>
+<li>是否提供备用模型</li>
+<li>是否支持失败重试</li>
+</ul>
+<p>在正式上线前，建议使用真实业务请求进行一段时间的测试，而不是只发送一两次请求。</p>
+<hr />
+<h2>八、第五点：开发文档是否完整？</h2>
+<p>一份完整的开发文档，可以明显降低 GPT API 接入难度。</p>
+<p>建议确认文档中是否包含以下内容：</p>
+<ul>
+<li>API Base URL</li>
+<li>API Key 使用方式</li>
+<li>cURL 示例</li>
+<li>Python 示例</li>
+<li>Node.js 示例</li>
+<li>OpenAI SDK 示例</li>
+<li>模型列表</li>
+<li>请求参数说明</li>
+<li>返回数据格式</li>
+<li>错误码说明</li>
+<li>限流规则</li>
+<li>价格说明</li>
+<li>流式调用示例</li>
+</ul>
+<p>如果平台没有清晰文档，后续遇到问题时，开发成本可能会比较高。</p>
+<p>你可以先查看：</p>
+<blockquote>
+<p>开发文档：<a href="https://quanzil.com">https://quanzil.com</a></p>
+<p>开发文档：<a href="https://quanzil.net">https://quanzil.net</a></p>
+</blockquote>
+<hr />
+<h2>九、第六点：是否支持流式输出？</h2>
+<p>流式输出适合聊天类应用。</p>
+<p>普通请求通常是模型生成完整内容后一次性返回。</p>
+<p>流式请求则会将生成结果分段返回。</p>
+<p>例如：</p>
+<pre><code class="language-json">{
+  &quot;stream&quot;: true
+}
+</code></pre>
+<p>流式输出适合：</p>
+<ul>
+<li>AI 聊天窗口</li>
+<li>智能客服</li>
+<li>在线写作工具</li>
+<li>AI 编程助手</li>
+<li>实时翻译</li>
+<li>长文本生成</li>
+</ul>
+<p>它的主要优势是用户可以更快看到第一部分内容，不需要等待完整回答生成完毕。</p>
+<hr />
+<h2>十、GPT API中转站的基本调用方式</h2>
+<p>使用 GPT API中转站，通常需要完成以下步骤：</p>
+<ol>
+<li>获取 API Key</li>
+<li>获取 Base URL</li>
+<li>选择模型</li>
+<li>构造请求参数</li>
+<li>发送请求</li>
+<li>解析返回内容</li>
+</ol>
+<p>下面使用 cURL 和 Python 进行示例。</p>
+<hr />
+<h2>十一、cURL 调用 GPT API 示例</h2>
+<pre><code class="language-bash">curl https://jeniya.cn/v1/chat/completions \
+  -H &quot;Content-Type: application/json&quot; \
+  -H &quot;Authorization: Bearer YOUR_API_KEY&quot; \
+  -d '{
+    &quot;model&quot;: &quot;gpt-4o-mini&quot;,
+    &quot;messages&quot;: [
+      {
+        &quot;role&quot;: &quot;system&quot;,
+        &quot;content&quot;: &quot;你是一个专业的中文 AI 助手。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;content&quot;: &quot;如何选择 GPT API中转站？&quot;
+      }
+    ],
+    &quot;temperature&quot;: 0.7
+  }'
+</code></pre>
+<p>其中：</p>
+<ul>
+<li><code>model</code> 表示调用的模型</li>
+<li><code>messages</code> 表示对话内容</li>
+<li><code>temperature</code> 表示输出随机性</li>
+<li><code>Authorization</code> 用于身份验证</li>
+</ul>
+<p>具体接口地址和模型名称，需要以平台实际提供的文档为准。</p>
+<hr />
+<h2>十二、Python 调用 GPT API 示例</h2>
+<pre><code class="language-python">import requests
+
+url = &quot;https://jeniya.cn/v1/chat/completions&quot;
+api_key = &quot;YOUR_API_KEY&quot;
+
+headers = {
+    &quot;Content-Type&quot;: &quot;application/json&quot;,
+    &quot;Authorization&quot;: f&quot;Bearer {api_key}&quot;
+}
+
+payload = {
+    &quot;model&quot;: &quot;gpt-4o-mini&quot;,
+    &quot;messages&quot;: [
+        {
+            &quot;role&quot;: &quot;system&quot;,
+            &quot;content&quot;: &quot;你是一个专业的中文技术助手。&quot;
+        },
+        {
+            &quot;role&quot;: &quot;user&quot;,
+            &quot;content&quot;: &quot;GPT API中转站适合哪些项目？&quot;
+        }
+    ],
+    &quot;temperature&quot;: 0.7,
+    &quot;max_tokens&quot;: 800
+}
+
+response = requests.post(
+    url,
+    headers=headers,
+    json=payload,
+    timeout=60
+)
+
+print(response.status_code)
+print(response.json())
+</code></pre>
+<p>如果需要提取模型返回的文本，可以使用：</p>
+<pre><code class="language-python">data = response.json()
+content = data[&quot;choices&quot;][0][&quot;message&quot;][&quot;content&quot;]
+
+print(content)
+</code></pre>
+<hr />
+<h2>十三、使用 OpenAI SDK 接入 GPT API中转站</h2>
+<p>如果平台兼容 OpenAI SDK，可以通过设置 <code>base_url</code> 的方式调用。</p>
+<pre><code class="language-python">from openai import OpenAI
+
+client = OpenAI(
+    api_key=&quot;YOUR_API_KEY&quot;,
+    base_url=&quot;https://jeniya.cn/v1&quot;
+)
+
+response = client.chat.completions.create(
+    model=&quot;gpt-4o-mini&quot;,
+    messages=[
+        {
+            &quot;role&quot;: &quot;system&quot;,
+            &quot;content&quot;: &quot;你是一个专业的中文 AI 助手。&quot;
+        },
+        {
+            &quot;role&quot;: &quot;user&quot;,
+            &quot;content&quot;: &quot;GPT API中转站应该如何选择？&quot;
+        }
+    ]
+)
+
+print(response.choices[0].message.content)
+</code></pre>
+<p>对于已经使用 OpenAI SDK 的开发者来说，这种接入方式比较方便。</p>
+<p>通常需要修改：</p>
+<pre><code class="language-python">api_key=&quot;YOUR_API_KEY&quot;
+base_url=&quot;https://jeniya.cn/v1&quot;
+model=&quot;gpt-4o-mini&quot;
+</code></pre>
+<hr />
+<h2>十四、不同应用应该如何选择模型？</h2>
+<h3>1. 普通聊天</h3>
+<p>普通聊天、简单问答和日常对话，可以优先选择轻量模型。</p>
+<p>适合：</p>
+<ul>
+<li>网站 AI 助手</li>
+<li>基础客服</li>
+<li>常见问题回答</li>
+<li>简单内容生成</li>
+<li>文本改写</li>
+</ul>
+<p>重点关注：</p>
+<ul>
+<li>响应速度</li>
+<li>调用价格</li>
+<li>并发能力</li>
+</ul>
+<hr />
+<h3>2. AI 写作</h3>
+<p>AI 写作通常更关注：</p>
+<ul>
+<li>内容质量</li>
+<li>语言表达</li>
+<li>上下文理解</li>
+<li>文章结构</li>
+<li>输出稳定性</li>
+</ul>
+<p>如果是简单标题和短文案，轻量模型通常可以满足需求。</p>
+<p>如果是长文章、专业内容或营销文案，可以测试能力更强的模型。</p>
+<hr />
+<h3>3. 智能客服</h3>
+<p>智能客服通常更关注：</p>
+<ul>
+<li>回答稳定性</li>
+<li>业务知识准确性</li>
+<li>响应速度</li>
+<li>并发能力</li>
+<li>是否支持知识库</li>
+</ul>
+<p>对于客服场景，建议：</p>
+<ul>
+<li>使用较稳定的模型</li>
+<li>限制模型自由发挥</li>
+<li>使用清晰的系统提示词</li>
+<li>结合企业知识库</li>
+<li>对敏感问题增加人工转接</li>
+</ul>
+<hr />
+<h3>4. 知识库问答</h3>
+<p>知识库问答通常需要两类模型：</p>
+<ol>
+<li>Embedding 模型</li>
+<li>Chat 对话模型</li>
+</ol>
+<p>Embedding 模型负责将文档转换成向量，聊天模型负责根据检索结果生成自然语言回答。</p>
+<p>选择平台时，需要确认是否同时支持这两类能力。</p>
+<hr />
+<h3>5. AI 编程助手</h3>
+<p>编程类应用通常更关注：</p>
+<ul>
+<li>代码生成质量</li>
+<li>长上下文理解</li>
+<li>代码格式稳定性</li>
+<li>错误分析能力</li>
+<li>多文件内容处理能力</li>
+</ul>
+<p>建议使用真实代码样例对不同模型进行测试，不要只根据模型名称判断效果。</p>
+<hr />
+<h2>十五、如何控制 GPT API 调用成本？</h2>
+<h3>1. 使用合适的模型</h3>
+<p>简单任务不要默认使用最高成本模型。</p>
+<p>可以根据任务分层：</p>
+<ul>
+<li>简单分类：轻量模型</li>
+<li>短文本改写：轻量模型</li>
+<li>普通问答：中等模型</li>
+<li>复杂推理：高质量模型</li>
+<li>知识库检索：Embedding + Chat 模型</li>
+</ul>
+<hr />
+<h3>2. 减少无效上下文</h3>
+<p>多轮对话中，不要无限保留所有历史内容。</p>
+<p>可以：</p>
+<ul>
+<li>只保留最近几轮</li>
+<li>对历史记录生成摘要</li>
+<li>删除无关消息</li>
+<li>只传递相关文档片段</li>
+<li>控制系统提示词长度</li>
+</ul>
+<hr />
+<h3>3. 限制输出长度</h3>
+<p>可以设置：</p>
+<pre><code class="language-json">{
+  &quot;max_tokens&quot;: 800
+}
+</code></pre>
+<p>对于只需要简短答案的任务，可以将上限设置得更低。</p>
+<hr />
+<h3>4. 增加缓存</h3>
+<p>对于相同或相似的请求，可以使用缓存减少重复调用。</p>
+<p>适合缓存：</p>
+<ul>
+<li>常见问题</li>
+<li>固定产品介绍</li>
+<li>标准客服回答</li>
+<li>常用翻译</li>
+<li>固定格式的分类任务</li>
+</ul>
+<hr />
+<h3>5. 统计每次调用</h3>
+<p>建议在系统中记录：</p>
+<ul>
+<li>调用模型</li>
+<li>请求时间</li>
+<li>响应时间</li>
+<li>输入长度</li>
+<li>输出长度</li>
+<li>请求状态</li>
+<li>错误类型</li>
+<li>消耗金额</li>
+</ul>
+<p>通过调用数据，可以发现哪些功能最消耗成本。</p>
+<hr />
+<h2>十六、GPT API 常见错误及处理方式</h2>
+<h3>1. 401 Unauthorized</h3>
+<p>通常表示 API Key 验证失败。</p>
+<p>检查：</p>
+<pre><code class="language-bash">Authorization: Bearer YOUR_API_KEY
+</code></pre>
+<p>同时确认：</p>
+<ul>
+<li>Key 是否填写正确</li>
+<li>是否包含 Bearer</li>
+<li>是否多了空格</li>
+<li>Key 是否过期</li>
+<li>Base URL 是否正确</li>
+</ul>
+<hr />
+<h3>2. 400 Bad Request</h3>
+<p>通常表示请求参数错误。</p>
+<p>常见原因：</p>
+<ul>
+<li>JSON 格式错误</li>
+<li>模型名称错误</li>
+<li><code>messages</code> 结构错误</li>
+<li>缺少必要字段</li>
+<li>参数名称拼写错误</li>
+</ul>
+<p>建议先使用最小请求进行排查。</p>
+<hr />
+<h3>3. 429 Too Many Requests</h3>
+<p>通常表示请求频率过高或额度不足。</p>
+<p>处理方式：</p>
+<ul>
+<li>降低并发</li>
+<li>增加重试间隔</li>
+<li>使用请求队列</li>
+<li>检查余额</li>
+<li>对重复请求进行缓存</li>
+<li>必要时切换模型</li>
+</ul>
+<hr />
+<h3>4. 500 Server Error</h3>
+<p>通常表示服务端异常。</p>
+<p>建议：</p>
+<ul>
+<li>稍后重新请求</li>
+<li>记录完整错误内容</li>
+<li>检查平台运行状态</li>
+<li>增加超时和重试</li>
+<li>为重要业务设计备用方案</li>
+</ul>
+<hr />
+<h2>十七、GPT中转站和官方 API 如何选择？</h2>
+<h3>适合直接使用官方 API 的情况</h3>
+<p>如果你：</p>
+<ul>
+<li>只需要使用单一模型</li>
+<li>需要官方最新功能</li>
+<li>已经熟悉官方 API</li>
+<li>有能力自行维护接口适配</li>
+<li>对底层服务有较强控制需求</li>
+</ul>
+<p>可以考虑直接使用官方 API。</p>
+<hr />
+<h3>适合使用 GPT API中转站的情况</h3>
+<p>如果你：</p>
+<ul>
+<li>想快速完成 API 接入</li>
+<li>需要调用多个模型</li>
+<li>希望使用统一接口格式</li>
+<li>想方便比较不同模型</li>
+<li>想减少代码适配工作</li>
+<li>正在开发 AI 产品原型</li>
+<li>需要统一管理模型调用</li>
+</ul>
+<p>那么 GPT API中转站可能更加适合。</p>
+<hr />
+<h2>十八、GPT API中转站适合个人开发者吗？</h2>
+<p>适合。</p>
+<p>个人开发者通常需要快速完成产品验证，例如：</p>
+<ul>
+<li>AI 写作工具</li>
+<li>AI 翻译工具</li>
+<li>聊天机器人</li>
+<li>浏览器插件</li>
+<li>内容生成网站</li>
+<li>AI 资料总结工具</li>
+<li>个人知识库</li>
+<li>编程辅助工具</li>
+</ul>
+<p>使用 GPT API中转站，可以先用较低开发成本完成 MVP，再根据用户反馈逐步升级模型和系统。</p>
+<hr />
+<h2>十九、GPT API中转站适合企业项目吗？</h2>
+<p>也适合，但企业项目需要重点关注：</p>
+<ul>
+<li>接口稳定性</li>
+<li>调用并发</li>
+<li>费用管理</li>
+<li>数据安全</li>
+<li>权限管理</li>
+<li>日志记录</li>
+<li>失败重试</li>
+<li>模型降级</li>
+<li>服务条款</li>
+</ul>
+<p>企业在正式上线前，建议先进行压力测试和长期稳定性测试。</p>
+<hr />
+<h2>二十、常见问题 FAQ</h2>
+<h3>GPT API中转站安全吗？</h3>
+<p>安全性取决于平台的服务能力和你的使用方式。开发者应保护 API Key，不要将密钥放在前端或公开代码中，并在使用前了解平台的隐私政策和服务条款。</p>
+<hr />
+<h3>GPT API中转站价格一定比官方 API低吗？</h3>
+<p>不一定。不同平台的价格、模型来源、计费方式和服务内容不同，不能简单判断谁一定更便宜。建议结合模型效果、稳定性和实际调用成本综合比较。</p>
+<hr />
+<h3>GPT API中转站支持 OpenAI SDK 吗？</h3>
+<p>如果平台兼容 OpenAI API 格式，通常可以通过配置 <code>base_url</code> 的方式使用 OpenAI SDK。具体要以平台文档为准。</p>
+<hr />
+<h3>GPT API中转站可以同时调用多个模型吗？</h3>
+<p>不同平台支持情况不同。一些平台会提供多个模型，开发者可以根据任务修改 <code>model</code> 参数进行切换。</p>
+<hr />
+<h3>GPT API中转站适合做商业项目吗？</h3>
+<p>是否适合，需要查看平台的服务条款、模型授权、数据处理规则和商业使用限制。商业项目上线前，建议仔细确认相关规定。</p>
+<hr />
+<h3>GPT API调用失败怎么办？</h3>
+<p>可以依次检查：</p>
+<ol>
+<li>API Key 是否正确</li>
+<li>Base URL 是否正确</li>
+<li>Authorization 格式是否正确</li>
+<li>模型名称是否可用</li>
+<li>请求 JSON 是否正确</li>
+<li>账户余额或调用额度是否充足</li>
+<li>是否触发限流或超时</li>
+</ol>
+<hr />
+<h2>总结</h2>
+<p>选择 GPT API中转站 时，不要只关注“价格低不低”，还要综合考虑：</p>
+<ul>
+<li>是否兼容 OpenAI API</li>
+<li>是否支持 OpenAI SDK</li>
+<li>是否提供多个模型</li>
+<li>API 文档是否完整</li>
+<li>接口是否稳定</li>
+<li>响应速度是否满足需求</li>
+<li>计费是否清晰</li>
+<li>是否支持流式输出</li>
+<li>是否方便查看调用记录</li>
+<li>是否适合你的业务场景</li>
+</ul>
+<p>如果你只是测试 GPT API，可以先使用轻量模型和简单请求。</p>
+<p>如果你准备开发正式产品，则建议提前做好：</p>
+<ol>
+<li>模型分类</li>
+<li>成本统计</li>
+<li>错误重试</li>
+<li>请求限流</li>
+<li>API Key 管理</li>
+<li>多模型切换</li>
+<li>备用方案设计</li>
+</ol>
+<p>对于需要快速接入 GPT、Claude、Gemini、DeepSeek 等大模型的开发者来说，兼容 OpenAI 格式的 GPT API中转站可以降低开发和维护成本。</p>
+<p>如果你想了解大模型 API 中转服务，可以查看：</p>
+<blockquote>
+<p>AI API 中转站平台：<a href="https://quanzil.com">https://quanzil.com</a></p>
+<p>AI API 中转站平台：<a href="https://quanzil.net">https://quanzil.net</a></p>
+</blockquote>
+</div>
+
+      <!-- 👇 Python 会识别并删除这个占位符，保持输出页面干净 -->
+      
     </article>
   </main>
 
   <footer class="site-footer">
-    <div>© <span id="current-year"></span>  保留所有权利</div>
+    <div>© <span id="current-year"></span> 保留所有权利</div>
   </footer>
 
-  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/dompurify@3.1.6/dist/purify.min.js"></script>
   <script>
-
+    // Python 会替换这里的内容
     const articleConfig = {
   "title": "GPT API中转站怎么选？价格、模型、稳定性与接入方式全面对比",
   "summary": "GPT API中转站怎么选？本文从模型支持、接口兼容性、调用价格、响应速度、稳定性、API Key管理、开发文档和售后支持等方面，详细介绍如何选择适合个人开发者和企业项目的大模型 API 中转站。",
   "author": "ai agent",
-  "published": "2026-09-18 00:00:00",
+  "published": "2026-09-22 00:00:00",
   "canonical": "https://quanzil.com/articles/how-to-call-gpt-api-in-china.html",
   "targetUrl": "https://quanzil.com/",
   "targetLabel": "进入 API 中转站 →",
@@ -311,6 +987,7 @@
       year: 'numeric', month: '2-digit', day: '2-digit'
     }).format(new Date(value));
 
+    // 填充顶部和导航信息
     document.title = `${articleConfig.title}｜网站名称`;
     document.getElementById('site-brand').href = articleConfig.homeUrl;
     document.getElementById('brand-name').textContent = articleConfig.siteName;
@@ -320,12 +997,15 @@
     document.getElementById('nav-articles').href = articleConfig.articlesUrl;
     document.getElementById('nav-docs').href = articleConfig.docsUrl;
     document.getElementById('nav-pricing').href = articleConfig.pricingUrl;
+
+    // 填充文章 Meta 数据
     document.getElementById('article-title').textContent = articleConfig.title;
     document.getElementById('article-summary').textContent = articleConfig.summary;
     document.getElementById('article-author').textContent = articleConfig.author;
     const headerTarget = document.getElementById('header-target');
     headerTarget.href = articleConfig.targetUrl;
     headerTarget.textContent = articleConfig.targetLabel;
+
     document.getElementById('publish-date').textContent = formatDate(articleConfig.published);
     document.getElementById('publish-date').dateTime = articleConfig.published;
 
@@ -335,21 +1015,7 @@
     document.getElementById('update-date').dateTime = updateDate;
     document.getElementById('current-year').textContent = updated.getFullYear();
 
-    const markdownSource = document.getElementById('article-markdown');
-    const markdown = markdownSource.type === 'application/json'
-      ? JSON.parse(markdownSource.textContent)
-      : markdownSource.textContent.trim().replaceAll('<\\/script>', '<' + '/script>');
-    const markdownContent = document.getElementById('markdown-content');
-    if (typeof marked !== 'undefined' && typeof DOMPurify !== 'undefined') {
-      const rendered = marked.parse(markdown, { gfm: true, breaks: false });
-      markdownContent.innerHTML = DOMPurify.sanitize(rendered);
-    } else {
-
-      markdownContent.textContent = markdown;
-      markdownContent.style.whiteSpace = 'pre-wrap';
-      markdownContent.style.overflowWrap = 'anywhere';
-    }
-
+    // 构建结构化数据 (对百度/Google SEO 极其重要)
     const schema = {
       '@context': 'https://schema.org',
       '@type': 'Article',
